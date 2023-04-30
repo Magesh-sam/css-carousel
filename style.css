@@ -1,0 +1,106 @@
+body{
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+input[type='radio']{
+  display: none;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  width: 500%;
+  transition: transform 0.5s;
+}
+.wrap{
+  width: 100%;
+  position: relative;
+ 
+}
+.text{
+  position: absolute;
+  font-size: 75px;
+  font-weight: bold;
+  top: 30%;
+  left: 44%;
+  color: white;
+}
+.wrap::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+}
+.slides img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.indicators label {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgb(37, 191, 234);
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.indicators label:hover {
+  background-color: rgb(238, 28, 28);
+}
+
+.indicators label:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: black;
+  transform: scale(0);
+  transition: transform 0.2s;
+}
+
+.indicators input:checked + label:before {
+  transform: scale(1);
+}
+
+.slides {
+  transform: translateX(0%);
+}
+
+#slide1:checked ~ .slides {
+  transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+  transform: translateX(-20%);
+}
+
+#slide3:checked ~ .slides {
+  transform: translateX(-40%);
+}
+
+#slide4:checked ~ .slides {
+  transform: translateX(-60%);
+}
+
+#slide5:checked ~ .slides {
+  transform: translateX(-80%);
+}
